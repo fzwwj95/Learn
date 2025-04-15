@@ -37,6 +37,7 @@ init:
 	sudo apt update && sudo apt upgrade -y
 	sudo apt-get install vim -y
 	sudo apt install ssh -y
+	sudo apt install net-tools -y
 python:
 	sudo apt install python3
 	sudo apt install python3-pip -y
