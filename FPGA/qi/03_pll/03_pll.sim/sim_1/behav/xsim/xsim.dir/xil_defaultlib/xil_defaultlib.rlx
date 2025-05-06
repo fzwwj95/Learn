@@ -1,0 +1,10 @@
+0.7
+2020.2
+May 22 2024
+19:03:11
+E:/Learn/FPGA/qi/03_pll/03_pll.gen/sources_1/ip/bram_8x1024/sim/bram_8x1024.v,1746430863,verilog,,E:/Learn/FPGA/qi/03_pll/03_pll.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v,,bram_8x1024,,,../../../../03_pll.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/03_pll/03_pll.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v,1745917891,verilog,,E:/Learn/FPGA/qi/03_pll/03_pll.srcs/sources_1/new/xc7z010_top.v,,clk_wiz_0,,,../../../../03_pll.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/03_pll/03_pll.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v,1745917891,verilog,,E:/Learn/FPGA/qi/03_pll/03_pll.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v,,clk_wiz_0_clk_wiz,,,../../../../03_pll.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/03_pll/03_pll.sim/sim_1/behav/xsim/glbl.v,1708598507,verilog,,,,glbl,,,,,,,,
+E:/Learn/FPGA/qi/03_pll/03_pll.srcs/sim_1/new/sim_bram_TB.v,1746435067,verilog,,,,sim_bram_TB,,,../../../../03_pll.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/03_pll/03_pll.srcs/sources_1/new/xc7z010_top.v,1746437067,verilog,,E:/Learn/FPGA/qi/03_pll/03_pll.srcs/sim_1/new/sim_bram_TB.v,,xc7z010_top,,,../../../../03_pll.ip_user_files/ipstatic,,,,,

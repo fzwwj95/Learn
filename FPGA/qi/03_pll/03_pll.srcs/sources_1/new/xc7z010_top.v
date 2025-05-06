@@ -56,5 +56,60 @@ always @(posedge w_clk_125M) begin
 end
 
 
+reg           r_bram_en    ;
+reg           r_bram_wen   ;
+reg  [9 : 0]  r_bram_addr  ;
+reg  [7 : 0]  r_bram_data  ;
+reg  [7 : 0]  r_cnt        ;
+
+wire [7 : 0]  w_bram_dout  ;
+
+
+bram_8x1024 bram_8x1024_U0(
+  .clka    (w_clk_125M    ),      // input  wire clka
+  .ena     (r_bram_en     ),      // input  wire ena
+  .wea     (r_bram_wen    ),      // input  wire [0 : 0] wea
+  .addra   (r_bram_addr   ),      // input  wire [9 : 0] addra
+  .dina    (r_bram_data   ),      // input  wire [7 : 0] dina
+  .douta   (w_bram_dout   )       // output wire [7 : 0] douta
+);
+
+always @(posedge w_clk_125M, negedge w_locked) begin
+    
+    if( !w_locked ) begin
+        r_bram_en   <= 'd0  ;
+        r_bram_wen  <= 'd0  ;
+        r_bram_data <= 'd0  ;
+        r_bram_addr <= 'd0  ;      
+    end else if (r_cnt >= 1 && r_cnt <= 10) begin
+        r_bram_en   <= 'd1           ;
+        r_bram_wen  <= 'd1           ;
+        r_bram_data <=  r_cnt        ;
+        r_bram_addr <=  r_cnt - 'd1  ; 
+    end else if (r_cnt >= 21 && r_cnt <= 30) begin
+        r_bram_en   <= 'd1           ;
+        r_bram_wen  <= 'd0           ;
+        r_bram_data <= 'd0           ;
+        r_bram_addr <=  r_cnt - 21   ;    
+    end else begin
+        r_bram_en   <= 'd0  ;
+        r_bram_wen  <= 'd0  ;
+        r_bram_data <= 'd0  ;
+        r_bram_addr <= 'd0  ;
+    end
+end
+
+always @(posedge w_clk_125M, negedge w_locked) begin
+
+    if( !w_locked ) begin
+        r_cnt <= 'd0           ;
+    end else if (r_cnt >= 50) begin
+        r_cnt <= 'd0           ;
+    end else begin
+        r_cnt <= r_cnt + 'd1   ;
+    end
+    
+end
+
 
 endmodule
