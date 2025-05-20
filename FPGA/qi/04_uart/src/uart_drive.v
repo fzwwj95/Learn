@@ -24,7 +24,8 @@ module uart_drive#(
     parameter                               P_SYSTEM_CLK      = 50_000_000   , //50MHz 
     parameter                               P_UART_BUADRATE   = 9600         , 
     parameter                               P_UART_DATA_WIDTH = 8            ,
-    parameter                               P_UART_STOP_WIDTH = 1            
+    parameter                               P_UART_STOP_WIDTH = 1            ,
+    parameter                               P_UART_CHECK      = 0              //NONE=0; ODD=1; EVEN=2  
                            
 )(                           
     input                                   i_clk                            ,
@@ -43,11 +44,13 @@ module uart_drive#(
 
     );
 
+localparam                                   P_CLK_DIV_NUMBER = P_SYSTEM_CLK / P_UART_BUADRATE ;
+
 wire                                         w_uart_buadclk                  ;
 wire                                         w_uart_buadclk_rst              ;
 
 CLK_DIV_module#(
-    .P_CLK_DIV_CNT                           (2                 ) 
+    .P_CLK_DIV_CNT                           (P_CLK_DIV_NUMBER  )    //5000000/9600=5208.33
 )CLK_DIV_module_u0(
     .i_clk                                   (i_clk             )   ,
     .i_rst                                   (i_rst             )   ,
@@ -65,22 +68,23 @@ uart_rx#(
     .P_SYSTEM_CLK                            (P_SYSTEM_CLK      )   , //50MHz 
     .P_UART_BUADRATE                         (P_UART_BUADRATE   )   , 
     .P_UART_DATA_WIDTH                       (P_UART_DATA_WIDTH )   ,
-    .P_UART_STOP_WIDTH                       (P_UART_STOP_WIDTH )   
-                           
+    .P_UART_STOP_WIDTH                       (P_UART_STOP_WIDTH )   ,
+    .P_UART_CHECK                            (P_UART_CHECK      )                          
 )uart_rx_u0(                           
     .i_clk                                   (w_uart_buadclk    )   ,
     .i_rst                                   (w_uart_buadclk_rst)   ,
     .i_uart_rx                               (i_uart_rx         )   ,
                   
-    .i_user_rx_data                          (i_user_rx_data    )   ,
-    .i_user_rx_valid                         (i_user_rx_valid   )   
+    .o_user_rx_data                          (i_user_rx_data    )   ,
+    .o_user_rx_valid                         (i_user_rx_valid   )   
 );
 
 uart_tx#(
     .P_SYSTEM_CLK                            (P_SYSTEM_CLK      )   , //50MHz 
     .P_UART_BUADRATE                         (P_UART_BUADRATE   )   , 
     .P_UART_DATA_WIDTH                       (P_UART_DATA_WIDTH )   ,
-    .P_UART_STOP_WIDTH                       (P_UART_STOP_WIDTH )   
+    .P_UART_STOP_WIDTH                       (P_UART_STOP_WIDTH )   ,
+    .P_UART_CHECK                            (P_UART_CHECK      )
                            
 )uart_tx_u0(                           
     .i_clk                                   (w_uart_buadclk    )   ,
