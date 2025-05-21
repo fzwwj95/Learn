@@ -42,27 +42,25 @@ system_pll system_pll_u0
 );
 
 uart_drive#(
-    .P_SYSTEM_CLK           (50_000_000  )   , //50MHz 
-    .P_UART_BUADRATE        (9600        )   , 
-    .P_UART_DATA_WIDTH      (8           )   ,
-    .P_UART_STOP_WIDTH      (1           )   ,
-    .P_UART_CHECK           (0           )     //NONE=0; ODD=1; EVEN=2  
+    .P_SYSTEM_CLK           (50_000_000           )                  , //50MHz 
+    .P_UART_BUADRATE        (9600                 )                  , 
+    .P_UART_DATA_WIDTH      (8                    )                  ,
+    .P_UART_STOP_WIDTH      (1                    )                  ,
+    .P_UART_CHECK           (0                    )                    //NONE=0; ODD=1; EVEN=2  
                            
 )uart_drive_U0(                           
-    .i_clk                  (w_ppl_50M   )          ,
-    .i_rst                  (w_ppl_locked)          ,
-    .i_uart_rx              (            )          ,
-    .o_uart_tx              (            )          ,
-            
-    .i_user_tx_data         (            )          ,
-    .i_user_tx_valid        (            )          ,
-    .o_user_tx_ready        (            )          ,
-            
-    .o_user_rx_data         (            )          ,
-    .o_user_rx_valid        (            )
+    .i_clk                  (w_clk_50MHz          )                  ,
+    .i_rst                  (w_clk_rst            )                  ,
+    .i_uart_rx              (i_uart_rx            )                  ,
+    .o_uart_tx              (o_uart_tx            )                  ,
+        
+    .i_user_tx_data         (                     )                  ,
+    .i_user_tx_valid        (                     )                  ,
+    .o_user_tx_ready        (                     )                  ,
+        
+    .o_user_rx_data         (                     )                  ,
+    .o_user_rx_valid        (                     )        
 
-
-
-    );
+);
 
 endmodule
