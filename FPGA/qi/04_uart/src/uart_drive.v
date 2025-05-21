@@ -37,8 +37,8 @@ module uart_drive#(
     input                                   i_user_tx_valid                  ,
     output                                  o_user_tx_ready                  ,
 
-    input    [P_UART_DATA_WIDTH - 1 : 0]    i_user_rx_data                   ,
-    input                                   i_user_rx_valid
+    output    [P_UART_DATA_WIDTH - 1 : 0]   o_user_rx_data                   ,
+    output                                  o_user_rx_valid
 
 
 
@@ -75,8 +75,8 @@ uart_rx#(
     .i_rst                                   (w_uart_buadclk_rst)   ,
     .i_uart_rx                               (i_uart_rx         )   ,
                   
-    .o_user_rx_data                          (i_user_rx_data    )   ,
-    .o_user_rx_valid                         (i_user_rx_valid   )   
+    .o_user_rx_data                          (o_user_rx_data    )   ,
+    .o_user_rx_valid                         (o_user_rx_valid   )   
 );
 
 uart_tx#(
