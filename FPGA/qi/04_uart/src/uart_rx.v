@@ -82,7 +82,7 @@ always @(posedge i_clk, posedge i_rst) begin
         ro_user_rx_data <= 'd0                                               ;                                              
     end
     else if(r_cnt >= 1 && r_cnt <= P_UART_DATA_WIDTH)begin
-        ro_user_rx_data <= {r_uart_rx[1] , ro_user_rx_data[P_UART_DATA_WIDTH - 1 : 1]}       ; 
+        ro_user_rx_data <= {r_uart_rx[1] , ro_user_rx_data[P_UART_DATA_WIDTH - 1 : 1]}   ; 
     end
     else begin
         ro_user_rx_data <= ro_user_rx_data                                   ; 
