@@ -24,7 +24,7 @@ module UART_TOP(
 
     input                    i_clk                                   ,
     input                    i_uart_rx                               ,
-    output                   o_uart_tx                               ,     
+    output                   o_uart_tx                                   
  
     ); 
  
