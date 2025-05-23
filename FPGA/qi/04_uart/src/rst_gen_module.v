@@ -33,7 +33,7 @@ reg    [7:0]   r_cnt  = 'd0        ;
 assign         o_rst  = ro_rst     ;
 
 always @(posedge i_clk ) begin
-    if (r_cnt >= P_RST_CYCLE - 1 || P_RST_CYCLE == 0) begin
+    if (r_cnt == P_RST_CYCLE - 1 || P_RST_CYCLE == 0) begin
         r_cnt <= r_cnt             ;
     end
     else begin
@@ -42,7 +42,7 @@ always @(posedge i_clk ) begin
 end
 
 always @(posedge i_clk ) begin
-    if (r_cnt >= P_RST_CYCLE - 1 || P_RST_CYCLE == 0) begin
+    if (r_cnt == P_RST_CYCLE - 1 || P_RST_CYCLE == 0) begin
         ro_rst <= 'd0              ;
     end
     else begin

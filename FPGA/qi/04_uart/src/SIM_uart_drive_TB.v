@@ -27,7 +27,7 @@ module SIM_uart_drive_TB(
 
 reg    clk,rst              ;
 
-localparam  P_USER_DATA_WITH = 8 ;
+localparam                         P_USER_DATA_WITH = 8 ;
 
 reg    [P_USER_DATA_WITH-1 : 0]    r_user_tx_data     ;
 reg                                r_user_tx_valid    ;
@@ -61,7 +61,7 @@ uart_drive#(
     .P_UART_STOP_WIDTH      (1                    )                  ,
     .P_UART_CHECK           (0                    )                    //NONE=0; ODD=1; EVEN=2  
                            
-)uart_drive_U0(                           
+)uart_drive_U1(                           
     .i_clk                  (clk                  )                  ,
     .i_rst                  (rst                  )                  ,
     .i_uart_rx              (i_uart_rx            )                  ,

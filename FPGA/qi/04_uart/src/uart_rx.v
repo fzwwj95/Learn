@@ -70,7 +70,7 @@ always @(posedge i_clk, posedge i_rst) begin
         r_cnt      <= 'd0                                                    ;
     end
     else if(r_uart_rx[1] == 0 || r_cnt > 0) begin
-        r_cnt      <= r_cnt + 'd1                                            ;
+        r_cnt      <= r_cnt + 1                                              ;
     end
     else begin
         r_cnt      <= r_cnt                                                  ;
@@ -85,7 +85,7 @@ always @(posedge i_clk, posedge i_rst) begin
         ro_user_rx_data <= {r_uart_rx[1] , ro_user_rx_data[P_UART_DATA_WIDTH - 1 : 1]}   ; 
     end
     else begin
-        ro_user_rx_data <= ro_user_rx_data                                   ; 
+        ro_user_rx_data <= 'd0                                   ; 
     end
     
 end
@@ -104,7 +104,7 @@ always @(posedge i_clk, posedge i_rst) begin
         ro_user_rx_valid  <=  'd1                                            ;
     end
     else begin
-        ro_user_rx_valid  <=  ro_user_rx_valid                               ;
+        ro_user_rx_valid  <=  'd0                                            ;
     end
     
 end
@@ -121,9 +121,6 @@ always @(posedge i_clk, posedge i_rst) begin
     end
     
 end
-
-
-
 
 
 endmodule

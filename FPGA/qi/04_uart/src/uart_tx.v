@@ -56,7 +56,7 @@ wire                                        w_tx_active                      ;
 assign    o_uart_tx       = ro_uart_tx                                       ;
 assign    o_user_tx_ready = ro_user_tx_ready                                 ;
 assign    w_tx_active     = i_user_tx_valid & o_user_tx_ready                ;
-assign    w_tx_check      = i_user_tx_data                                   ;
+
 /*******************************always***************************************/
 always @(posedge i_clk, posedge i_rst) begin
     if(i_rst)begin
@@ -65,7 +65,7 @@ always @(posedge i_clk, posedge i_rst) begin
     else if(w_tx_active) begin
         ro_user_tx_ready <= 'd0                                              ;
     end 
-    else if(i_rst >= 2 + P_UART_DATA_WIDTH + P_UART_STOP_WIDTH -1) begin
+    else if(r_cnt >= 2 + P_UART_DATA_WIDTH + P_UART_STOP_WIDTH -1) begin
         ro_user_tx_ready <= 'd1                                              ;
     end                           
     else begin                            
@@ -77,11 +77,11 @@ always @(posedge i_clk, posedge i_rst) begin
     if(i_rst)begin
         r_cnt <= 'd0                                                         ;
     end
-    else if(i_rst >= 2 + P_UART_DATA_WIDTH + P_UART_STOP_WIDTH -1) begin
+    else if(r_cnt >= 2 + P_UART_DATA_WIDTH + P_UART_STOP_WIDTH -1) begin
         r_cnt <= 'd0                                                         ;
     end                          
     else if(!ro_user_tx_ready) begin                          
-        r_cnt <= r_cnt + 'd1                                                 ;
+        r_cnt <= r_cnt + 1                                                 ;
     end                          
     else begin                          
         r_cnt <= r_cnt                                                       ;
@@ -112,10 +112,10 @@ always @(posedge i_clk, posedge i_rst) begin
     else if(w_tx_active)begin                          
         ro_uart_tx  <=  'd0                                                  ;
     end
-    else if(!ro_user_tx_ready && i_rst == 3 + P_UART_DATA_WIDTH -3)begin
+    else if(!ro_user_tx_ready && r_cnt == 3 + P_UART_DATA_WIDTH -3)begin
         ro_uart_tx  <=  r_tx_check                                           ;
     end
-    else if(!ro_user_tx_ready && i_rst >= 3 + P_UART_DATA_WIDTH -2)begin
+    else if(!ro_user_tx_ready && r_cnt >= 3 + P_UART_DATA_WIDTH -2)begin
         ro_uart_tx  <=  'd1                                                  ;
     end                          
     else if(!ro_user_tx_ready) begin                          
@@ -138,7 +138,7 @@ always @(posedge i_clk, posedge i_rst) begin
         r_tx_check  <=   r_tx_check ^ r_tx_data[0]                           ;
     end                          
     else begin                          
-        ro_uart_tx  <=  ro_uart_tx                                           ;
+        r_tx_check  <=   r_tx_check                                          ;
     end
     
 end
