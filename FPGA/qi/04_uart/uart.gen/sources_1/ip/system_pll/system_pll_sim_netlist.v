@@ -1,10 +1,11 @@
-// Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+// Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+// Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Fri May 23 11:07:35 2025
+// Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+// Date        : Mon May 26 13:29:22 2025
 // Host        : DESKTOP-OV83DJ3 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top system_pll -prefix
-//               system_pll_ system_pll_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               e:/Learn/FPGA/qi/04_uart/uart.gen/sources_1/ip/system_pll/system_pll_sim_netlist.v
 // Design      : system_pll
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -25,13 +26,13 @@ module system_pll
   wire clk_out1;
   wire locked;
 
-  system_pll_system_pll_clk_wiz inst
+  system_pll_clk_wiz inst
        (.clk_in1(clk_in1),
         .clk_out1(clk_out1),
         .locked(locked));
 endmodule
 
-module system_pll_system_pll_clk_wiz
+module system_pll_clk_wiz
    (clk_out1,
     locked,
     clk_in1);

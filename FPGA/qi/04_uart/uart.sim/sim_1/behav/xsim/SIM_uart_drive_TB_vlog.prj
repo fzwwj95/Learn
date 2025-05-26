@@ -1,5 +1,5 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../uart.gen/sources_1/ip/system_pll" \
+verilog xil_defaultlib  --include "../../../../uart.ip_user_files/ipstatic" \
 "../../../../src/CLK_DIV_module.v" \
 "../../../../src/rst_gen_module.v" \
 "../../../../src/uart_drive.v" \

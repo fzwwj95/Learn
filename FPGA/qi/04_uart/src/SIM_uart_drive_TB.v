@@ -36,6 +36,8 @@ wire                               w_user_tx_ready    ;
 wire   [P_USER_DATA_WITH-1 : 0]    w_user_rx_data     ;
 wire                               w_user_rx_valid    ;
 wire                               w_user_active      ;
+wire                               w_user_clk         ;//for sim
+wire                               w_user_rst         ;//for sim
 
 assign w_user_active = r_user_tx_valid & w_user_tx_ready ;
 
@@ -61,7 +63,7 @@ uart_drive#(
     .P_UART_STOP_WIDTH      (1                    )                  ,
     .P_UART_CHECK           (0                    )                    //NONE=0; ODD=1; EVEN=2  
                            
-)uart_drive_U1(                           
+)uart_drive_U0(                           
     .i_clk                  (clk                  )                  ,
     .i_rst                  (rst                  )                  ,
     .i_uart_rx              (i_uart_rx            )                  ,
@@ -72,13 +74,15 @@ uart_drive#(
     .o_user_tx_ready        (w_user_tx_ready      )                  ,
         
     .o_user_rx_data         (w_user_rx_data       )                  ,
-    .o_user_rx_valid        (w_user_rx_valid      )        
-
+    .o_user_rx_valid        (w_user_rx_valid      )                  ,
+    .o_user_clk             (w_user_clk           )                  ,
+    .o_user_rst             (w_user_rst           )                  
 );
 
-always @(posedge clk, posedge rst) begin
-    if(rst)begin
-        r_user_tx_data <= 'd1                                        ;
+
+always @(posedge w_user_clk, posedge w_user_rst) begin
+    if(w_user_rst)begin
+        r_user_tx_data <= 'd0                                        ;
     end
     else if(w_user_active)begin
         r_user_tx_data <= r_user_tx_data + 'd1                       ;
@@ -88,8 +92,8 @@ always @(posedge clk, posedge rst) begin
     end
 end
 
-always @(posedge clk, posedge rst) begin
-    if(rst)begin
+always @(posedge w_user_clk, posedge w_user_rst) begin
+    if(w_user_rst)begin
         r_user_tx_valid <= 'd0                                       ;
     end
     else if(w_user_active)begin

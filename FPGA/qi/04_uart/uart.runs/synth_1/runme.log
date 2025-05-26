@@ -4,66 +4,65 @@
 
 
 
-****** Vivado v2020.2 (64-bit)
-  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
-  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Mon May 26 13:30:24 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source uart_drive.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 630.469 ; gain = 202.098
 Command: synth_design -top uart_drive -part xc7z010clg400-2
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 21304
+INFO: [Synth 8-7075] Helper process launched with PID 27152
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Starting Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1086.414 ; gain = 452.016
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'uart_drive' [E:/Learn/FPGA/qi/04_uart/src/uart_drive.v:23]
-	Parameter P_SYSTEM_CLK bound to: 50000000 - type: integer 
-	Parameter P_UART_BUADRATE bound to: 9600 - type: integer 
-	Parameter P_UART_DATA_WIDTH bound to: 8 - type: integer 
-	Parameter P_UART_STOP_WIDTH bound to: 1 - type: integer 
-	Parameter P_UART_CHECK bound to: 0 - type: integer 
-	Parameter P_CLK_DIV_NUMBER bound to: 5208 - type: integer 
 INFO: [Synth 8-6157] synthesizing module 'CLK_DIV_module' [E:/Learn/FPGA/qi/04_uart/src/CLK_DIV_module.v:23]
 	Parameter P_CLK_DIV_CNT bound to: 5208 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'CLK_DIV_module' (1#1) [E:/Learn/FPGA/qi/04_uart/src/CLK_DIV_module.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'CLK_DIV_module' (0#1) [E:/Learn/FPGA/qi/04_uart/src/CLK_DIV_module.v:23]
 INFO: [Synth 8-6157] synthesizing module 'rst_gen_module' [E:/Learn/FPGA/qi/04_uart/src/rst_gen_module.v:23]
 	Parameter P_RST_CYCLE bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'rst_gen_module' (2#1) [E:/Learn/FPGA/qi/04_uart/src/rst_gen_module.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'rst_gen_module' (0#1) [E:/Learn/FPGA/qi/04_uart/src/rst_gen_module.v:23]
 INFO: [Synth 8-6157] synthesizing module 'uart_rx' [E:/Learn/FPGA/qi/04_uart/src/uart_rx.v:23]
 	Parameter P_SYSTEM_CLK bound to: 50000000 - type: integer 
 	Parameter P_UART_BUADRATE bound to: 9600 - type: integer 
 	Parameter P_UART_DATA_WIDTH bound to: 8 - type: integer 
 	Parameter P_UART_STOP_WIDTH bound to: 1 - type: integer 
 	Parameter P_UART_CHECK bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (3#1) [E:/Learn/FPGA/qi/04_uart/src/uart_rx.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'uart_rx' (0#1) [E:/Learn/FPGA/qi/04_uart/src/uart_rx.v:23]
 INFO: [Synth 8-6157] synthesizing module 'uart_tx' [E:/Learn/FPGA/qi/04_uart/src/uart_tx.v:24]
 	Parameter P_SYSTEM_CLK bound to: 50000000 - type: integer 
 	Parameter P_UART_BUADRATE bound to: 9600 - type: integer 
 	Parameter P_UART_DATA_WIDTH bound to: 8 - type: integer 
 	Parameter P_UART_STOP_WIDTH bound to: 1 - type: integer 
 	Parameter P_UART_CHECK bound to: 0 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (4#1) [E:/Learn/FPGA/qi/04_uart/src/uart_tx.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'uart_drive' (5#1) [E:/Learn/FPGA/qi/04_uart/src/uart_drive.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (0#1) [E:/Learn/FPGA/qi/04_uart/src/uart_tx.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'uart_drive' (0#1) [E:/Learn/FPGA/qi/04_uart/src/uart_drive.v:23]
+WARNING: [Synth 8-6014] Unused sequential element r_rx_check_reg was removed.  [E:/Learn/FPGA/qi/04_uart/src/uart_rx.v:114]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1196.473 ; gain = 562.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1196.473 ; gain = 562.074
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z010clg400-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1196.473 ; gain = 562.074
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z010clg400-2
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1196.473 ; gain = 562.074
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -71,20 +70,26 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input    8 Bit       Adders := 2     
+	   2 Input   12 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 2     
 +---Registers : 
+	               16 Bit    Registers := 2     
 	                8 Bit    Registers := 4     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 6     
 +---Muxes : 
-	   2 Input    8 Bit        Muxes := 3     
-	   2 Input    1 Bit        Muxes := 10    
+	   2 Input   12 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 7     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Part Resource Summary
 ---------------------------------------------------------------------------------
+INFO: [Device 21-9227] Part: xc7z010clg400-2 does not have CEAM library.
 Part Resources:
 DSPs: 80 (col length:40)
 BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
@@ -95,21 +100,22 @@ No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:22 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:06 ; elapsed = 00:00:22 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Timing Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:06 ; elapsed = 00:00:22 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Technology Mapping : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -127,37 +133,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished IO Insertion : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -174,14 +180,14 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     2|
-|2     |CARRY4 |     6|
+|2     |CARRY4 |     3|
 |3     |LUT1   |     1|
-|4     |LUT2   |     4|
-|5     |LUT3   |     6|
-|6     |LUT4   |    17|
-|7     |LUT5   |    15|
-|8     |LUT6   |    21|
-|9     |FDCE   |    45|
+|4     |LUT2   |     3|
+|5     |LUT3   |     5|
+|6     |LUT4   |    19|
+|7     |LUT5   |    12|
+|8     |LUT6   |    17|
+|9     |FDCE   |    40|
 |10    |FDPE   |     2|
 |11    |FDRE   |     9|
 |12    |IBUF   |    12|
@@ -192,32 +198,34 @@ Report Instance Areas:
 +------+--------------------+---------------+------+
 |      |Instance            |Module         |Cells |
 +------+--------------------+---------------+------+
-|1     |top                 |               |   151|
-|2     |  CLK_DIV_module_u0 |CLK_DIV_module |    42|
+|1     |top                 |               |   136|
+|2     |  CLK_DIV_module_u0 |CLK_DIV_module |    31|
 |3     |  rst_gen_module_u0 |rst_gen_module |    20|
 |4     |  uart_rx_u0        |uart_rx        |    29|
-|5     |  uart_tx_u0        |uart_tx        |    35|
+|5     |  uart_tx_u0        |uart_tx        |    31|
 +------+--------------------+---------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.727 ; gain = 758.328
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 1065.977 ; gain = 0.000
-Synthesis Optimization Complete : Time (s): cpu = 00:00:08 ; elapsed = 00:00:24 . Memory (MB): peak = 1065.977 ; gain = 0.000
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.727 ; gain = 758.328
+Synthesis Optimization Complete : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1392.727 ; gain = 758.328
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1065.977 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1397.578 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1172.086 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1498.766 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
+Synth Design complete | Checksum: 2965cac1
 INFO: [Common 17-83] Releasing license: Synthesis
-22 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+23 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:27 . Memory (MB): peak = 1172.086 ; gain = 106.109
+synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1498.766 ; gain = 868.297
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1498.766 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/Learn/FPGA/qi/04_uart/uart.runs/synth_1/uart_drive.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file uart_drive_utilization_synth.rpt -pb uart_drive_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri May 23 17:54:59 2025...
+INFO: [Vivado 12-24828] Executing command : report_utilization -file uart_drive_utilization_synth.rpt -pb uart_drive_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon May 26 13:30:47 2025...

@@ -1,19 +1,22 @@
-vlib work
-vlib riviera
+transcript off
+onbreak {quit -force}
+onerror {quit -force}
+transcript on
 
+vlib work
 vlib riviera/xpm
 vlib riviera/xil_defaultlib
 
 vmap xpm riviera/xpm
 vmap xil_defaultlib riviera/xil_defaultlib
 
-vlog -work xpm  -sv2k12 "+incdir+../../../ipstatic" \
-"D:/Xilinx/Vivado/2020.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+vlog -work xpm  -incr "+incdir+../../../ipstatic" -l xpm -l xil_defaultlib \
+"E:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 
-vcom -work xpm -93 \
-"D:/Xilinx/Vivado/2020.2/data/ip/xpm/xpm_VCOMP.vhd" \
+vcom -work xpm -93  -incr \
+"E:/Xilinx/Vivado/2024.1/data/ip/xpm/xpm_VCOMP.vhd" \
 
-vlog -work xil_defaultlib  -v2k5 "+incdir+../../../ipstatic" \
+vlog -work xil_defaultlib  -incr -v2k5 "+incdir+../../../ipstatic" -l xpm -l xil_defaultlib \
 "../../../../uart.gen/sources_1/ip/system_pll/system_pll_clk_wiz.v" \
 "../../../../uart.gen/sources_1/ip/system_pll/system_pll.v" \
 

@@ -10,6 +10,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Learn/FPGA/qi/04_uart/src/uart_t
 INFO: [VRFC 10-311] analyzing module uart_tx
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module SIM_uart_drive_TB
-WARNING: [VRFC 10-2096] empty statement in sequential block [E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v:48]
-INFO: [VRFC 10-2458] undeclared symbol i_uart_rx, assumed default net type wire [E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v:67]
-INFO: [VRFC 10-2458] undeclared symbol o_uart_tx, assumed default net type wire [E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v:68]
+WARNING: [VRFC 10-2096] empty statement in sequential block [E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v:50]
+WARNING: [VRFC 10-2096] empty statement in sequential block [E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v:52]
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Learn/FPGA/qi/04_uart/uart.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

@@ -27,7 +27,7 @@ module rst_gen_module#(
     output     o_rst 
 );
 
-reg            ro_rst = 'd0        ;
+reg            ro_rst = 'd1        ;
 reg    [7:0]   r_cnt  = 'd0        ;
 
 assign         o_rst  = ro_rst     ;

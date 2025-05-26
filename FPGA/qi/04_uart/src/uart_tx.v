@@ -81,7 +81,7 @@ always @(posedge i_clk, posedge i_rst) begin
         r_cnt <= 'd0                                                         ;
     end                          
     else if(!ro_user_tx_ready) begin                          
-        r_cnt <= r_cnt + 1                                                 ;
+        r_cnt <= r_cnt + 1                                                   ;
     end                          
     else begin                          
         r_cnt <= r_cnt                                                       ;
@@ -132,10 +132,10 @@ always @(posedge i_clk, posedge i_rst) begin
         r_tx_check  <=  'd0                                                  ;
     end
     else if(!ro_user_tx_ready && P_UART_CHECK==1 ) begin//odd
-        r_tx_check  <= ~(r_tx_check ^ r_tx_data[0])                          ;
+        r_tx_check  <= ~(r_tx_check ^ ro_uart_tx)                            ;
     end
     else if(!ro_user_tx_ready && P_UART_CHECK==2 ) begin//even
-        r_tx_check  <=   r_tx_check ^ r_tx_data[0]                           ;
+        r_tx_check  <=   r_tx_check ^ ro_uart_tx                             ;
     end                          
     else begin                          
         r_tx_check  <=   r_tx_check                                          ;

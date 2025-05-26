@@ -1,10 +1,11 @@
--- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-- Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
--- Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
--- Date        : Fri May 23 11:07:35 2025
+-- Tool Version: Vivado v.2024.1 (win64) Build 5076996 Wed May 22 18:37:14 MDT 2024
+-- Date        : Mon May 26 13:29:22 2025
 -- Host        : DESKTOP-OV83DJ3 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top system_pll -prefix
---               system_pll_ system_pll_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               e:/Learn/FPGA/qi/04_uart/uart.gen/sources_1/ip/system_pll/system_pll_sim_netlist.vhdl
 -- Design      : system_pll
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,15 +15,15 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity system_pll_system_pll_clk_wiz is
+entity system_pll_clk_wiz is
   port (
     clk_out1 : out STD_LOGIC;
     locked : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
-end system_pll_system_pll_clk_wiz;
+end system_pll_clk_wiz;
 
-architecture STRUCTURE of system_pll_system_pll_clk_wiz is
+architecture STRUCTURE of system_pll_clk_wiz is
   signal clk_in1_system_pll : STD_LOGIC;
   signal clk_out1_system_pll : STD_LOGIC;
   signal clkfbout_buf_system_pll : STD_LOGIC;
@@ -176,7 +177,7 @@ end system_pll;
 
 architecture STRUCTURE of system_pll is
 begin
-inst: entity work.system_pll_system_pll_clk_wiz
+inst: entity work.system_pll_clk_wiz
      port map (
       clk_in1 => clk_in1,
       clk_out1 => clk_out1,

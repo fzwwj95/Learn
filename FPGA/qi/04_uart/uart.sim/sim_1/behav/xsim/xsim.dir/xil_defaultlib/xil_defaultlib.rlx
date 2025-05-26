@@ -1,11 +1,11 @@
 0.7
 2020.2
-Nov 18 2020
-09:47:47
-E:/Learn/FPGA/qi/04_uart/src/CLK_DIV_module.v,1744884912,verilog,,E:/Learn/FPGA/qi/04_uart/src/rst_gen_module.v,,CLK_DIV_module,,,../../../../uart.gen/sources_1/ip/system_pll,,,,,
-E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v,1747984903,verilog,,,,SIM_uart_drive_TB,,,../../../../uart.gen/sources_1/ip/system_pll,,,,,
-E:/Learn/FPGA/qi/04_uart/src/rst_gen_module.v,1747991232,verilog,,E:/Learn/FPGA/qi/04_uart/src/uart_drive.v,,rst_gen_module,,,../../../../uart.gen/sources_1/ip/system_pll,,,,,
-E:/Learn/FPGA/qi/04_uart/src/uart_drive.v,1747759136,verilog,,E:/Learn/FPGA/qi/04_uart/src/uart_rx.v,,uart_drive,,,../../../../uart.gen/sources_1/ip/system_pll,,,,,
-E:/Learn/FPGA/qi/04_uart/src/uart_rx.v,1747986102,verilog,,E:/Learn/FPGA/qi/04_uart/src/uart_tx.v,,uart_rx,,,../../../../uart.gen/sources_1/ip/system_pll,,,,,
-E:/Learn/FPGA/qi/04_uart/src/uart_tx.v,1747987391,verilog,,E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v,,uart_tx,,,../../../../uart.gen/sources_1/ip/system_pll,,,,,
-E:/Learn/FPGA/qi/04_uart/uart.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+May 22 2024
+19:03:11
+E:/Learn/FPGA/qi/04_uart/src/CLK_DIV_module.v,1744884912,verilog,,E:/Learn/FPGA/qi/04_uart/src/rst_gen_module.v,,CLK_DIV_module,,,../../../../uart.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v,1747984903,verilog,,,,SIM_uart_drive_TB,,,../../../../uart.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/04_uart/src/rst_gen_module.v,1747991232,verilog,,E:/Learn/FPGA/qi/04_uart/src/uart_drive.v,,rst_gen_module,,,../../../../uart.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/04_uart/src/uart_drive.v,1747759136,verilog,,E:/Learn/FPGA/qi/04_uart/src/uart_rx.v,,uart_drive,,,../../../../uart.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/04_uart/src/uart_rx.v,1747986102,verilog,,E:/Learn/FPGA/qi/04_uart/src/uart_tx.v,,uart_rx,,,../../../../uart.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/04_uart/src/uart_tx.v,1747987391,verilog,,E:/Learn/FPGA/qi/04_uart/src/SIM_uart_drive_TB.v,,uart_tx,,,../../../../uart.ip_user_files/ipstatic,,,,,
+E:/Learn/FPGA/qi/04_uart/uart.sim/sim_1/behav/xsim/glbl.v,1708598507,verilog,,,,glbl,,,,,,,,

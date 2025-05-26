@@ -38,7 +38,10 @@ module uart_drive#(
     output                                  o_user_tx_ready                  ,
 
     output    [P_UART_DATA_WIDTH - 1 : 0]   o_user_rx_data                   ,
-    output                                  o_user_rx_valid
+    output                                  o_user_rx_valid                  ,
+    
+    output                                  o_user_clk                       ,//for sim
+    output                                  o_user_rst                        //for sim
 
 
 
@@ -49,6 +52,9 @@ localparam                                   P_CLK_DIV_NUMBER = P_SYSTEM_CLK / P
 wire                                         w_uart_buadclk                  ;
 wire                                         w_uart_buadclk_rst              ;
 
+assign                                       o_user_clk = w_uart_buadclk     ;//for sim
+assign                                       o_user_rst = w_uart_buadclk_rst ;//for sim
+
 CLK_DIV_module#(
     .P_CLK_DIV_CNT                           (P_CLK_DIV_NUMBER  )    //5000000/9600=5208.33
 )CLK_DIV_module_u0(
@@ -58,7 +64,7 @@ CLK_DIV_module#(
 );
 
 rst_gen_module#(
-    .P_RST_CYCLE                             (1                 )   
+    .P_RST_CYCLE                             (10                )   
 )rst_gen_module_u0(
     .i_clk                                   (w_uart_buadclk    )   ,
     .o_rst                                   (w_uart_buadclk_rst)
