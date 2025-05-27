@@ -1,0 +1,45 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue May 27 11:23:47 2025
+# Process ID: 17307
+# Current directory: /home/fzwwj95/work/Learn
+# Command line: vivado
+# Log file: /home/fzwwj95/work/Learn/vivado.log
+# Journal file: /home/fzwwj95/work/Learn/vivado.jou
+# Running On: MSI, OS: Linux, CPU Frequency: 800.000 MHz, CPU Physical cores: 14, Host memory: 134726 MB
+#-----------------------------------------------------------
+start_gui
+create_project uart /home/fzwwj95/work/Learn/FPGA/qi/04_uart -part xc7z010clg400-2
+add_files -norecurse {/home/fzwwj95/work/Learn/FPGA/qi/04_uart/src/uart_drive.v /home/fzwwj95/work/Learn/FPGA/qi/04_uart/src/uart_rx.v /home/fzwwj95/work/Learn/FPGA/qi/04_uart/src/CLK_DIV_module.v /home/fzwwj95/work/Learn/FPGA/qi/04_uart/src/uart_tx.v /home/fzwwj95/work/Learn/FPGA/qi/04_uart/src/UART_TOP.v /home/fzwwj95/work/Learn/FPGA/qi/04_uart/src/rst_gen_module.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name system_pll
+set_property -dict [list \
+  CONFIG.CLKIN1_JITTER_PS {40.0} \
+  CONFIG.CLKIN1_UI_JITTER {0.002} \
+  CONFIG.CLKOUT1_JITTER {175.579} \
+  CONFIG.CLKOUT1_PHASE_ERROR {164.985} \
+  CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50} \
+  CONFIG.Component_Name {system_pll} \
+  CONFIG.MMCM_CLKFBOUT_MULT_F {20.000} \
+  CONFIG.MMCM_CLKIN1_PERIOD {20.000} \
+  CONFIG.MMCM_CLKIN2_PERIOD {10.0} \
+  CONFIG.MMCM_CLKOUT0_DIVIDE_F {20.000} \
+  CONFIG.MMCM_REF_JITTER1 {0.002} \
+  CONFIG.PRIM_IN_FREQ {50} \
+] [get_ips system_pll]
+generate_target {instantiation_template} [get_files /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.srcs/sources_1/ip/system_pll/system_pll.xci]
+generate_target all [get_files  /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.srcs/sources_1/ip/system_pll/system_pll.xci]
+catch { config_ip_cache -export [get_ips -all system_pll] }
+export_ip_user_files -of_objects [get_files /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.srcs/sources_1/ip/system_pll/system_pll.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.srcs/sources_1/ip/system_pll/system_pll.xci]
+launch_runs system_pll_synth_1 -jobs 10
+wait_on_run system_pll_synth_1
+export_simulation -of_objects [get_files /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.srcs/sources_1/ip/system_pll/system_pll.xci] -directory /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.ip_user_files/sim_scripts -ip_user_files_dir /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.ip_user_files -ipstatic_source_dir /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.cache/compile_simlib/modelsim} {questa=/home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.cache/compile_simlib/questa} {xcelium=/home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.cache/compile_simlib/xcelium} {vcs=/home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.cache/compile_simlib/vcs} {riviera=/home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+launch_runs synth_1 -jobs 10
+wait_on_run synth_1
+launch_simulation
+source UART_TOP.tcl
+close_sim

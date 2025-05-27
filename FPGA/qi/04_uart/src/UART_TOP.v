@@ -33,6 +33,16 @@ wire                         w_system_ppl_locked                     ;
 
 assign                       w_clk_rst = ~ w_system_ppl_locked       ;
 
+wire    [7:0]                w_user_tx_data                          ;
+wire                         w_user_tx_ready                         ;
+wire    [7:0]                w_user_rx_data                          ;
+wire                         w_user_rx_valid                         ;
+wire                         w_user_clk                              ;
+wire                         w_user_rst                              ;
+wire                         w_fifo_empty                            ;
+reg                          r_fifo_read_en                          ;
+reg                          r_uart_tx_valid                         ;
+
 
 system_pll system_pll_u0
 ( 
@@ -55,14 +65,48 @@ uart_drive#(
     .i_uart_rx              (i_uart_rx            )                  ,
     .o_uart_tx              (o_uart_tx            )                  ,
     
-    .i_user_tx_data         (                     )                  ,
-    .i_user_tx_valid        (                     )                  ,
-    .o_user_tx_ready        (                     )                  ,     
-    .o_user_rx_data         (                     )                  ,
-    .o_user_rx_valid        (                     )        
+    .i_user_tx_data         (w_user_tx_data       )                  ,
+    .i_user_tx_valid        (r_uart_tx_valid      )                  ,
+    .o_user_tx_ready        (w_user_tx_ready      )                  ,     
+    .o_user_rx_data         (w_user_rx_data       )                  ,
+    .o_user_rx_valid        (w_user_rx_valid      )                  ,
+    .o_user_clk             (w_user_clk           )                  ,//for sim
+    .o_user_rst             (w_user_rst           )                   //for sim
 
 );
 
+UART_FIFO UART_FIFO_U0 (
+  .clk                      (w_user_clk           )                  ,      // input wire clk
+  .srst                     (w_user_rst           )                  ,    // input wire srst
+  .din                      (w_user_rx_data       )                  ,      // input wire [7 : 0] din
+  .wr_en                    (w_user_rx_valid      )                  ,  // input wire wr_en
+  .rd_en                    (r_fifo_read_en       )                  ,  // input wire rd_en
+  .dout                     (w_user_tx_data       )                  ,    // output wire [7 : 0] dout
+  .full                     (                     )                  ,    // output wire full
+  .empty                    (                     )                    // output wire empty
+);
 
+always@(posedge w_user_clk, posedge w_user_rst)begin
+    
+    if(w_user_rst)begin
+        r_fifo_read_en <= 'd0                                        ;
+    end
+    else if(~w_fifo_empty && w_user_tx_ready)begin
+        r_fifo_read_en <= 'd1                                        ;
+    end
+    else begin
+        r_fifo_read_en <= 'd0                                        ;
+    end    
+
+end
+always@(posedge w_user_clk, posedge w_user_rst)begin
+    
+    if(w_user_rst) begin
+        r_uart_tx_valid <= 'd0                                       ;
+    end
+    else begin
+        r_uart_tx_valid <= r_fifo_read_en                            ;
+    end
+end
 
 endmodule

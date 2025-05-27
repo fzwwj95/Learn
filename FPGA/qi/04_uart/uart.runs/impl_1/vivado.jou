@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue May 27 17:17:01 2025
+# Process ID: 66165
+# Current directory: /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.runs/impl_1
+# Command line: vivado -log UART_TOP.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source UART_TOP.tcl -notrace
+# Log file: /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.runs/impl_1/UART_TOP.vdi
+# Journal file: /home/fzwwj95/work/Learn/FPGA/qi/04_uart/uart.runs/impl_1/vivado.jou
+# Running On: MSI, OS: Linux, CPU Frequency: 800.000 MHz, CPU Physical cores: 14, Host memory: 134726 MB
+#-----------------------------------------------------------
+source UART_TOP.tcl -notrace

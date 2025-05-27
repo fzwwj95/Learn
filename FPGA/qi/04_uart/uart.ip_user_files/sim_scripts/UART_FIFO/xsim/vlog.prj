@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"../../../../uart.gen/sources_1/ip/UART_FIFO/sim/UART_FIFO.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort
