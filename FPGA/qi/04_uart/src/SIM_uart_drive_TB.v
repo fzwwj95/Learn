@@ -66,7 +66,8 @@ uart_drive#(
 )uart_drive_U0(                           
     .i_clk                  (clk                  )                  ,
     .i_rst                  (rst                  )                  ,
-    .i_uart_rx              (i_uart_rx            )                  ,
+    //.i_uart_rx              (i_uart_rx            )                  ,
+    .i_uart_rx              (o_uart_tx            )                  ,//for sim
     .o_uart_tx              (o_uart_tx            )                  ,
         
     .i_user_tx_data         (r_user_tx_data       )                  ,

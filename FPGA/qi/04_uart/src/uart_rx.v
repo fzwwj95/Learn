@@ -47,6 +47,7 @@ reg                                         ro_user_rx_valid                 ;
 reg    [1 : 0]                              r_uart_rx                        ;
 reg    [7 : 0]                              r_cnt                            ;
 reg                                         r_rx_check                       ;
+reg                                         r_rec_tx_check                   ;
 /**********************************wire***************************************/
 /**********************************component**********************************/
 /**********************************assign*************************************/
@@ -55,7 +56,7 @@ assign        o_user_rx_valid  =  ro_user_rx_valid                           ;
 /**********************************always*************************************/
 always @(posedge i_clk, posedge i_rst) begin
     if(i_rst)begin
-        r_uart_rx  <= 'd0                                                    ;
+        r_uart_rx  <= 2'b11                                                  ;
     end
     else begin
         r_uart_rx  <= {r_uart_rx[0], i_uart_rx}                              ;//r_uart_rx[1] two flip-flops
@@ -85,7 +86,7 @@ always @(posedge i_clk, posedge i_rst) begin
         ro_user_rx_data <= {r_uart_rx[1] , ro_user_rx_data[P_UART_DATA_WIDTH - 1 : 1]}   ; 
     end
     else begin
-        ro_user_rx_data <= 'd0                                   ; 
+        ro_user_rx_data <= ro_user_rx_data                                   ; 
     end
     
 end
@@ -94,13 +95,13 @@ always @(posedge i_clk, posedge i_rst) begin
     if(i_rst)begin
         ro_user_rx_valid  <=  'd0                                            ;
     end
-    else if(r_cnt == P_UART_DATA_WIDTH && P_UART_CHECK == 0)begin
+    else if(r_cnt == P_UART_DATA_WIDTH + 1 && P_UART_CHECK == 0)begin
         ro_user_rx_valid  <=  'd1                                            ;
     end
-    else if(r_cnt == P_UART_DATA_WIDTH && P_UART_CHECK == 1 && r_rx_check == 1)begin//odd
+    else if(r_cnt == P_UART_DATA_WIDTH + 1 && P_UART_CHECK == 1 && r_rx_check == !r_uart_rx[1])begin//odd
         ro_user_rx_valid  <=  'd1                                            ;
     end
-    else if(r_cnt == P_UART_DATA_WIDTH && P_UART_CHECK == 2 && r_rx_check == 0)begin//even
+    else if(r_cnt == P_UART_DATA_WIDTH + 1 && P_UART_CHECK == 2 && r_rx_check == r_uart_rx[1])begin//even
         ro_user_rx_valid  <=  'd1                                            ;
     end
     else begin
@@ -108,6 +109,19 @@ always @(posedge i_clk, posedge i_rst) begin
     end
     
 end
+
+//always @(posedge i_clk, posedge i_rst) begin
+//    if(i_rst)begin
+//        r_rec_tx_check <= 'd0                                                ;
+//    end 
+//    else if(r_cnt == P_UART_DATA_WIDTH + 1)begin
+//        r_rec_tx_check <= r_uart_rx[1]                                       ;
+//    end 
+//    else begin
+//        r_rec_tx_check <= r_rec_tx_check                                     ;
+//    end
+
+//end
 
 always @(posedge i_clk, posedge i_rst) begin
     if(i_rst)begin 
